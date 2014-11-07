@@ -114,7 +114,7 @@
 		}
 
 		var cellH = 30;
-		var cellW = 50;
+		var cellW = 40;
 		var maxCols = Math.floor(document.clientWidth/cellW) - 1;
 		var maxRows = Math.floor(document.clientHeight/cellH) - 1;
 		function touchMove(ex){
@@ -179,13 +179,13 @@
 							rowData.push('Name');
 
 							domStr += '<td class="rowColsInfo" data-row="' + i + '" data-col="' +
-								j + '"><span>Name</span></td>';
+								j + '"><span>Week</span></td>';
 						}
 						else if(i != 0 && j == 0){
 							rowData.push('Week');
 
 							domStr += '<td class="rowColsInfo" data-row="' + i + '" data-col="' +
-								j + '"><span>Week</span></td>';
+								j + '"><span>Name</span></td>';
 						}
 						else{
 							rowData.push('');
@@ -248,11 +248,11 @@
 		$("#tbs").delegate('td','touchstart',cellTouch);
 
 		//点击标题
-		$(document).delegate('.rowColsInfo','touchstart',function(){
+		$(document).delegate('.rowColsInfo,h2','touchstart',function(){
 
 			var $this = $(this);
-			var w = $(this).css('width');
-			var h = $(this).css('height');
+			var w = $this.css('width');
+			var h = $this.css('height');
 			var $input = $('<input style="z-index: 100; position: absolute; display:block; left: 0px; top:0px;">');
 
 			var row = $this.data('row');
@@ -262,22 +262,18 @@
 				'width': parseInt(w) - 9,
 				'height': parseInt(h) - 3
 			})
-			$input.appendTo($(this));
+			$input.appendTo($this);
 
 			//渲染需要一定时间.
 			setTimeout(function(){
 				$input.focus();
-			},200)
+			},100)
 
 			$input.focusout(function(){
 				var val = $input.val();
 				$input.unbind().hide().remove();
-
 				tbData[row][col] = val;
-
 				$this.text(val);
-
-				$input.blur();
 			})
 
 		});

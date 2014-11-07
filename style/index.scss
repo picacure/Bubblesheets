@@ -41,6 +41,9 @@ body, html {
     }
 }
 
+@-webkit-keyframes blink {
+    50%  { border-color: #000000 }
+}
 
 #tbs {
     z-index: 99;
@@ -51,6 +54,31 @@ body, html {
     #tbs-table {
         overflow: scroll;
         -webkit-box-flex: 1;
+
+        .tbs-hd{
+            text-align: center;
+        }
+
+        input {
+            font-family: 'Helvetica';
+            font-weight: lighter;
+            font-size: 16px;
+            background: #e7e7e7;
+            border: 0px;
+        }
+
+        h2{
+            display: inline-block;
+            position: relative;
+            font-family: 'Helvetica' !important;
+            font-weight: lighter;
+            border-bottom: 1px solid #e7e7e7;
+            -webkit-animation: blink 1s infinite;
+
+            input{
+                font-size: 24px;
+            }
+        }
 
         table {
             table-layout: fixed;
@@ -77,13 +105,6 @@ body, html {
                     font-family: 'Helvetica';
                     font-weight: lighter;
                 }
-
-                input {
-                    font-family: 'Helvetica';
-                    font-size: 16px;
-                    background: #e7e7e7;
-                    border: 0px;
-                }
             }
 
             //抬头,(行，列名)
@@ -95,7 +116,8 @@ body, html {
                 span {
                     font-family: 'Helvetica';
                     font-size: 16px;
-                    border-bottom: 1px solid black;
+                    border-bottom: 1px solid #e7e7e7;
+                    -webkit-animation: blink 2s infinite;
                 }
             }
 
@@ -128,15 +150,11 @@ body, html {
     }
 
 
-    .tbscell {
-        display: -webkit-box;
-    }
-
     #tbs-bar {
         height: 60px;
         width: 100%;
         color: #bbb;
-        background: #2e2e2e;
+        background: #000000;
         font-weight: bold;
         letter-spacing: 0.025em;
 
@@ -151,6 +169,20 @@ body, html {
                 list-style: none;
                 padding: 0 10px 0 10px;
                 line-height: 60px !important;
+            }
+
+            .close{
+                float: left;
+            }
+            .mail{
+                float: right;
+                line-height: 60px !important;
+                height: 60px;
+                img{
+                    display: inline-block;
+                    width: 40px;
+                    margin-top: 15px;
+                }
             }
         }
     }
