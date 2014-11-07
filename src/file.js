@@ -25,24 +25,22 @@
 			console.log(error.code);
 		}
 
-		if(window.isDeviceReady){
-			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs){
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs){
 
 
-				//创建子目录.
-				fs.root.getDirectory("schedule", {create: true, exclusive: false}, function(dirEntry){
+			//创建子目录.
+			fs.root.getDirectory("schedule", {create: true, exclusive: false}, function(dirEntry){
 
-					dirEntry.getFile(filename, null, function(fileEntry){
+				dirEntry.getFile(filename, null, function(fileEntry){
 
-						fileEntry.file(function(file){
-							readAsText(file);
-						}, fail);
+					fileEntry.file(function(file){
+						readAsText(file);
 					}, fail);
-
 				}, fail);
 
 			}, fail);
-		}
+
+		}, fail);
 	}
 })();
 
@@ -72,22 +70,17 @@
 			console.log(error.code);
 		}
 
-		if(window.isDeviceReady){
-			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs){
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs){
 
-				//创建子目录.
-				fs.root.getDirectory("schedule", {create: true, exclusive: false}, function(dirEntry){
+			//创建子目录.
+			fs.root.getDirectory("schedule", {create: true, exclusive: false}, function(dirEntry){
 
-					dirEntry.getFile(filename, {create: true, exclusive: false}, gotFileEntry, fail);
-
-				}, fail);
-
+				dirEntry.getFile(filename, {create: true, exclusive: false}, gotFileEntry, fail);
 
 			}, fail);
-		}
-		else{
-			console.log("_file.write device not ready");
-		}
+
+
+		}, fail);
 	}
 
 })();
