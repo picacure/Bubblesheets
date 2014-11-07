@@ -6,7 +6,7 @@ body, html {
   background: #e7e7e7;
   font-family: 'Helvetica' !important; }
 
-#wrapper, #tbs {
+#wrapper, .tbs {
   display: -webkit-box;
   -webkit-box-orient: horizontal;
   -webkit-box-pack: center;
@@ -15,6 +15,7 @@ body, html {
   height: 100%;
   width: 100%;
   margin: 0 auto;
+  z-index: 10;
   /*overflow: scroll;*/ }
 
 #wrapper {
@@ -39,40 +40,43 @@ body, html {
   50% {
     border-color: #000000; } }
 
-#tbs {
+#tbs-shadow {
+  z-index: -1; }
+
+.tbs {
   z-index: 99;
   background: #e7e7e7;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   /*垂直排列*/ }
-  #tbs #tbs-table {
+  .tbs .tbs-table {
     overflow: scroll;
     -webkit-box-flex: 1; }
-    #tbs #tbs-table .tbs-hd {
+    .tbs .tbs-table .tbs-hd {
       text-align: center; }
-    #tbs #tbs-table input {
+    .tbs .tbs-table input {
       font-family: 'Helvetica';
       font-weight: lighter;
       font-size: 16px;
       background: #e7e7e7;
       border: 0px; }
-    #tbs #tbs-table h2 {
+    .tbs .tbs-table h2 {
       display: inline-block;
       position: relative;
       font-family: 'Helvetica' !important;
       font-weight: lighter;
       border-bottom: 1px solid #e7e7e7;
       -webkit-animation: blink 1s infinite; }
-      #tbs #tbs-table h2 input {
+      .tbs .tbs-table h2 input {
         font-size: 24px; }
-    #tbs #tbs-table table {
+    .tbs .tbs-table table {
       table-layout: fixed;
       width: 80%;
       z-index: 100;
       background: #e7e7e7;
       /*background: #34495E;*/
       border-radius: 0.4em; }
-      #tbs #tbs-table table td {
+      .tbs .tbs-table table td {
         font-family: 'Helvetica';
         position: relative;
         padding: 2px;
@@ -82,21 +86,21 @@ body, html {
         word-break: break-all;
         word-wrap: break-word;
         color: #000000; }
-        #tbs #tbs-table table td span {
+        .tbs .tbs-table table td span {
           display: inline-block;
           text-align: center;
           font-family: 'Helvetica';
           font-weight: lighter; }
-      #tbs #tbs-table table .rowColsInfo {
+      .tbs .tbs-table table .rowColsInfo {
         position: relative;
         padding: 2px;
         text-align: center; }
-        #tbs #tbs-table table .rowColsInfo span {
+        .tbs .tbs-table table .rowColsInfo span {
           font-family: 'Helvetica';
           font-size: 16px;
           border-bottom: 1px solid #e7e7e7;
           -webkit-animation: blink 2s infinite; }
-      #tbs #tbs-table table .raw {
+      .tbs .tbs-table table .raw {
         display: inline-block;
         font: 'Helvetica';
         font-size: 1px;
@@ -107,7 +111,7 @@ body, html {
         background-size: contain;
         background-position: center;
         /*-webkit-animation: toRaw .5s 1;*/ }
-      #tbs #tbs-table table .ripe {
+      .tbs .tbs-table table .ripe {
         display: inline-block;
         font: 'Helvetica';
         font-size: 1px;
@@ -118,30 +122,30 @@ body, html {
         background-size: contain;
         background-position: center;
         /*-webkit-animation: toRipe .5s 1;*/ }
-  #tbs #tbs-bar {
+  .tbs .tbs-bar {
     height: 60px;
     width: 100%;
     color: #bbb;
     background: #000000;
     font-weight: bold;
     letter-spacing: 0.025em; }
-    #tbs #tbs-bar ul {
+    .tbs .tbs-bar ul {
       text-align: center;
       list-style: none;
       margin: 0;
       padding: 0; }
-      #tbs #tbs-bar ul li {
+      .tbs .tbs-bar ul li {
         display: inline-block;
         list-style: none;
         padding: 0 10px 0 10px;
         line-height: 60px !important; }
-      #tbs #tbs-bar ul .close {
+      .tbs .tbs-bar ul .close {
         float: left; }
-      #tbs #tbs-bar ul .mail {
+      .tbs .tbs-bar ul .mail {
         float: right;
         line-height: 60px !important;
         height: 60px; }
-        #tbs #tbs-bar ul .mail img {
+        .tbs .tbs-bar ul .mail img {
           display: inline-block;
           width: 40px;
           margin-top: 15px; }
@@ -151,6 +155,7 @@ body, html {
 
 #files {
   padding-top: 1px;
+  margin-top: 40px;
   width: 100%;
   overflow: scroll; }
   #files .file {

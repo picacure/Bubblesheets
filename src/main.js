@@ -35,13 +35,18 @@
 			currFileName = $this.data('name');
 			var isNew = $this.data('create');
 
-			if(isNew == 'new'){
-
+			function newfile(){
 				//新创建需要重新绑定 滑动创建表格事件.
 				tbData = [];
 				_File.write(currFileName,'');
 				$('#wrapper').removeClass('hide').bind('touchstart',touchStart).bind('touchmove',touchMove).bind('touchend',touchEnd);
 				$('#files').addClass('hide');
+
+				$('#tbs-shadow').removeClass('hide');
+			}
+
+			if(isNew == 'new'){
+				newfile();
 			}
 			else{
 
@@ -51,8 +56,8 @@
 						data = JSON.parse(result);
 					}
 					catch(e) {
-						alert("文件读取错误->" + e);
-						data = {};
+						console.log("文件读取错误->" + e);
+						newfile();
 						return;
 					}
 
@@ -85,7 +90,7 @@
 
 							$('#tbs').removeClass('hide');
 							$('#files').addClass('hide');
-							$("table").html(domStr).addClass('bd');
+							$("#tbs table").html(domStr).addClass('bd');
 						}
 						else{
 							tbData = [];
@@ -204,8 +209,10 @@
 				height:0
 			});
 
+			$('#tbs-shadow').addClass('hide');
+
 			$('#tbs').removeClass('hide');
-			$("table").html(domStr).addClass('bd');
+			$("#tbs table").html(domStr).addClass('bd');
 			$("#result").addClass('hide');
 
 			$("#wrapper").unbind('touchstart').unbind('touchmove').unbind('touchend').addClass('hide');

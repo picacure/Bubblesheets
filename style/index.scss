@@ -7,7 +7,7 @@ body, html {
     font-family: 'Helvetica' !important;
 }
 
-#wrapper, #tbs {
+#wrapper, .tbs {
     display: -webkit-box;
     -webkit-box-orient: horizontal;
     -webkit-box-pack: center;
@@ -16,6 +16,7 @@ body, html {
     height: 100%;
     width: 100%;
     margin: 0 auto;
+    z-index: 10;
     /*overflow: scroll;*/
 }
 
@@ -45,13 +46,17 @@ body, html {
     50%  { border-color: #000000 }
 }
 
-#tbs {
+#tbs-shadow{
+    z-index: -1;
+}
+
+.tbs {
     z-index: 99;
     background: #e7e7e7;
     display: -webkit-box;
     -webkit-box-orient: vertical; /*垂直排列*/
 
-    #tbs-table {
+    .tbs-table {
         overflow: scroll;
         -webkit-box-flex: 1;
 
@@ -150,7 +155,7 @@ body, html {
     }
 
 
-    #tbs-bar {
+    .tbs-bar {
         height: 60px;
         width: 100%;
         color: #bbb;
@@ -194,6 +199,7 @@ body, html {
 
 #files {
     padding-top: 1px;
+    margin-top: 40px;
     width: 100%;
     overflow: scroll;
     .file {
