@@ -124,76 +124,12 @@ body, html {
 .hide {
   display: none !important; }
 
-@-webkit-keyframes toRaw {
-  0% {
-    background: url("../images/5.png") no-repeat;
-    background-size: contain;
-    background-position: center; }
-
-  10% {
-    background: url("../images/4.png") no-repeat;
-    background-size: contain;
-    background-position: center; }
-
-  30% {
-    background: url("../images/3.png") no-repeat;
-    background-size: contain;
-    background-position: center; }
-
-  50% {
-    background: url("../images/2.png") no-repeat;
-    background-size: contain;
-    background-position: center; }
-
-  70% {
-    background: url("../images/1.png") no-repeat;
-    background-size: contain;
-    background-position: center; }
-
-  100% {
-    background: url("../images/6.png") no-repeat;
-    background-size: contain;
-    background-position: center; } }
-
-@-webkit-keyframes toRipe {
-  0% {
-    background: url("../images/6.png") no-repeat;
-    background-size: contain;
-    background-position: center; }
-
-  10% {
-    background: url("../images/1.png") no-repeat;
-    background-size: contain;
-    background-position: center; }
-
-  30% {
-    background: url("../images/2.png") no-repeat;
-    background-size: contain;
-    background-position: center; }
-
-  50% {
-    background: url("../images/3.png") no-repeat;
-    background-size: contain;
-    background-position: center; }
-
-  70% {
-    background: url("../images/4.png") no-repeat;
-    background-size: contain;
-    background-position: center; }
-
-  100% {
-    background: url("../images/5.png") no-repeat;
-    background-size: contain;
-    background-position: center; } }
-
 #files {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row; }
+  padding-top: 1px;
+  width: 100%;
+  overflow: scroll; }
   #files .file {
     display: inline-block;
-    -webkit-flex: 1;
     margin: 10px 10px;
     width: 60px;
     height: 60px;

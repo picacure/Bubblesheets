@@ -53,7 +53,6 @@
 					catch(e) {
 						alert("文件读取错误->" + e);
 						data = {};
-
 						return;
 					}
 
@@ -70,7 +69,11 @@
 
 									//泡泡
 									if(j != 0 && i != 0){
-										domStr += '<td data-row="' + i + '" data-col="' + j + '"><span class="' + data[i][j] + '"></span></td>';
+										var icon = "×";
+										if(data[i][j] == 'ripe') {
+											icon = "√";
+										}
+										domStr += '<td data-row="' + i + '" data-col="' + j + '"><span class="' + data[i][j] + '">'+ icon +'</span></td>';
 									}
 									else{
 										domStr += '<td class="rowColsInfo" data-row="' + i + '" data-col="' +
@@ -176,16 +179,16 @@
 							rowData.push('Name');
 
 							domStr += '<td class="rowColsInfo" data-row="' + i + '" data-col="' +
-								j + '"><span>Week</span></td>';
+								j + '"><span>Name</span></td>';
 						}
 						else if(i != 0 && j == 0){
 							rowData.push('Week');
 
 							domStr += '<td class="rowColsInfo" data-row="' + i + '" data-col="' +
-								j + '"><span>Name</span></td>';
+								j + '"><span>Week</span></td>';
 						}
 						else{
-
+							rowData.push('');
 							domStr += '<td class="rowColsInfo" data-row="' + i + '" data-col="' +
 								j + '"></td>';
 						}
