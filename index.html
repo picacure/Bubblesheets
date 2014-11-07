@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>××××</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html, charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="index.css" type="text/css">
+
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova_plugins.js"></script>
+    <script src="src/cordova_helper.js"></script>
+
+    <script src="src/jquery-1.7.2.js"></script>
+    <!--<script src="src/weinre.js"></script>-->
+    <!--<script src="src/iscroll.js"></script>-->
+
+    <!--<script src="src/jgestures.js"></script>-->
+    <!--<script src="src/angular-1.0.1.js"></script>-->
+    <!--<script src="src/debug.js"></script>-->
+
+    <script src="src/file.js"></script>
+    <script src="src/dir.js"></script>
+</head>
+<body>
+<div id="wrapper" class="hide">
+    <div id="result"
+         style="
+             position: absolute;
+             left: 50%; top: 50%;
+             font-size: 40px;
+             color: #ffffff;
+             width: 50px; height: 50px;
+             text-align: center;"></div>
+    <div id="line" style="position: absolute;
+                    left: 0px; top: 0px;
+                    border-right: 1px dashed #CD235C;
+                    border-bottom: 1px dashed #CD235C">
+
+    </div>
+    <div ng-app="myApp">
+        <div ng-controller="PeopleCtrl" ng-load="">
+            <!--<p>    Click <a ng-click="loadPeople()">here</a> to load data.</p>-->
+
+        </div>
+    </div>
+</div>
+<div id="tbs" class="hide">
+    <div id="tbs-bar" class="tbscell">
+        <ul>
+            <li class="close">Sheets</li>
+            <li class="mail">Email this</li>
+        </ul>
+    </div>
+    <div id="tbs-table" class="tbscell">
+        <table>
+            <!--<tr >-->
+
+                <!--<th class="rowColsInfo">eq</th>-->
+                <!--<th class="rowColsInfo">eq</th>-->
+                <!--<th class="rowColsInfo">eq</th>-->
+                <!--<th class="rowColsInfo">eq</th>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td><span class="raw">qw</span></td>-->
+                <!--<td><span class="raw">qe</span></td>-->
+                <!--<td><span class="raw">qw</span></td>-->
+                <!--<td><span class="raw">we</span></td>-->
+            <!--</tr>-->
+        </table>
+    </div>
+
+</div>
+<div id="files">
+    <!--<div class="file">asda</div>-->
+    <!--<div class="file">asda</div>-->
+    <!--<div class="file">asda</div>-->
+    <!--<div class="file">asda</div>-->
+    <!--<div class="file">asda</div>-->
+</div>
+<script>
+    alert("s");
+</script>
+</body>
+<script src="src/main.js"></script>
+</html>
