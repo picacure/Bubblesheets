@@ -80,49 +80,48 @@ body, html {
 
                 input {
                     font-family: 'Helvetica';
-                    border-bottom: 1px solid black;
                     font-size: 16px;
                     background: #e7e7e7;
                     border: 0px;
                 }
+            }
 
-                .rowColsInfo {
-                    position: relative;
-                    padding: 2px;
-                    text-align: center;
+            .rowColsInfo {
+                position: relative;
+                padding: 2px;
+                text-align: center;
 
-                    span {
-                        font-family: 'Helvetica';
-                        font-size: 16px;
-                        border-bottom: 1px solid black;
-                    }
-
-                    .raw {
-                        display: inline-block;
-                        font: 'Helvetica';
-                        font-size: 1px;
-                        line-height: 30px;
-                        width: 40px;
-                        height: 30px;
-                        background: url("../images/6.png") no-repeat;
-                        background-size: contain;
-                        background-position: center;
-                        /*-webkit-animation: toRaw .5s 1;*/
-                    }
-
-                    .ripe {
-                        display: inline-block;
-                        font: 'Helvetica';
-                        font-size: 1px;
-                        background: url("../images/1.png") no-repeat;
-                        line-height: 30px;
-                        width: 40px;
-                        height: 30px;
-                        background-size: contain;
-                        background-position: center;
-                        /*-webkit-animation: toRipe .5s 1;*/
-                    }
+                span {
+                    font-family: 'Helvetica';
+                    font-size: 16px;
+                    border-bottom: 1px solid black;
                 }
+            }
+
+            .raw {
+                display: inline-block;
+                font: 'Helvetica';
+                font-size: 1px;
+                line-height: 30px;
+                width: 40px;
+                height: 30px;
+                background: url("../images/6.png") no-repeat;
+                background-size: contain;
+                background-position: center;
+                /*-webkit-animation: toRaw .5s 1;*/
+            }
+
+            .ripe {
+                display: inline-block;
+                font: 'Helvetica';
+                font-size: 1px;
+                background: url("../images/1.png") no-repeat;
+                line-height: 30px;
+                width: 40px;
+                height: 30px;
+                background-size: contain;
+                background-position: center;
+                /*-webkit-animation: toRipe .5s 1;*/
             }
         }
     }
@@ -229,15 +228,12 @@ body, html {
     }
 }
 
-.files {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-
+#files {
+    padding-top: 1px;
+    width: 100%;
+    overflow: scroll;
     .file {
         display: inline-block;
-        -webkit-flex: 1;
         margin: 10px 10px;
         width: 60px;
         height: 60px;

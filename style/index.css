@@ -1,29 +1,25 @@
 body, html {
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background: #e7e7e7;
-    font-family: 'Helvetica' !important;
-}
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background: #e7e7e7;
+  font-family: 'Helvetica' !important; }
 
 #wrapper, #tbs {
-    display: -webkit-box;
-    -webkit-box-orient: horizontal;
-    -webkit-box-pack: center;
-    -webkit-box-align: center;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    /*overflow: scroll;*/
-}
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  /*overflow: scroll;*/ }
 
 #wrapper {
-    z-index: 1000;
-}
-
-#wrapper #result {
+  z-index: 1000; }
+  #wrapper #result {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -31,219 +27,171 @@ body, html {
     color: #ffffff;
     width: 50px;
     height: 50px;
-    text-align: center;
-}
-
-#wrapper #line {
+    text-align: center; }
+  #wrapper #line {
     position: absolute;
     left: 0px;
     top: 0px;
     border-right: 1px dashed #CD235C;
-    border-bottom: 1px dashed #CD235C;
-}
+    border-bottom: 1px dashed #CD235C; }
 
 #tbs {
-    z-index: 99;
-    background: #e7e7e7;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    /*垂直排列*/
-}
-
-#tbs #tbs-table {
+  z-index: 99;
+  background: #e7e7e7;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /*垂直排列*/ }
+  #tbs #tbs-table {
     overflow: scroll;
-    -webkit-box-flex: 1;
-}
-
-#tbs #tbs-table table {
-    table-layout: fixed;
-    width: 80%;
-    z-index: 100;
-    background: #e7e7e7;
-    /*background: #34495E;*/
-    border-radius: 0.4em;
-}
-
-#tbs #tbs-table table td {
-    font-family: 'Helvetica';
-    position: relative;
-    padding: 2px;
-    width: 50px;
-    height: 30px;
-    text-align: center;
-    word-break: break-all;
-    word-wrap: break-word;
-    color: #000000;
-}
-
-#tbs #tbs-table table td span {
-    display: inline-block;
-    text-align: center;
-    font-family: 'Helvetica';
-    font-weight: lighter;
-}
-
-#tbs #tbs-table table td input {
-    font-family: 'Helvetica';
-    border-bottom: 1px solid black;
-    font-size: 16px;
-    background: #e7e7e7;
-    border: 0px;
-}
-
-#tbs #tbs-table table td .rowColsInfo {
-    position: relative;
-    padding: 2px;
-    text-align: center;
-}
-
-#tbs #tbs-table table td .rowColsInfo span {
-    font-family: 'Helvetica';
-    font-size: 16px;
-    border-bottom: 1px solid black;
-}
-
-#tbs #tbs-table table td .rowColsInfo .raw {
-    display: inline-block;
-    font: 'Helvetica';
-    font-size: 1px;
-    line-height: 30px;
-    width: 40px;
-    height: 30px;
-    background: url("../images/6.png") no-repeat;
-    background-size: contain;
-    background-position: center;
-    /*-webkit-animation: toRaw .5s 1;*/
-}
-
-#tbs #tbs-table table td .rowColsInfo .ripe {
-    display: inline-block;
-    font: 'Helvetica';
-    font-size: 1px;
-    background: url("../images/1.png") no-repeat;
-    line-height: 30px;
-    width: 40px;
-    height: 30px;
-    background-size: contain;
-    background-position: center;
-    /*-webkit-animation: toRipe .5s 1;*/
-}
-
-#tbs .tbscell {
-    display: -webkit-box;
-}
-
-#tbs #tbs-bar {
+    -webkit-box-flex: 1; }
+    #tbs #tbs-table table {
+      table-layout: fixed;
+      width: 80%;
+      z-index: 100;
+      background: #e7e7e7;
+      /*background: #34495E;*/
+      border-radius: 0.4em; }
+      #tbs #tbs-table table td {
+        font-family: 'Helvetica';
+        position: relative;
+        padding: 2px;
+        width: 50px;
+        height: 30px;
+        text-align: center;
+        word-break: break-all;
+        word-wrap: break-word;
+        color: #000000; }
+        #tbs #tbs-table table td span {
+          display: inline-block;
+          text-align: center;
+          font-family: 'Helvetica';
+          font-weight: lighter; }
+        #tbs #tbs-table table td input {
+          font-family: 'Helvetica';
+          font-size: 16px;
+          background: #e7e7e7;
+          border: 0px; }
+      #tbs #tbs-table table .rowColsInfo {
+        position: relative;
+        padding: 2px;
+        text-align: center; }
+        #tbs #tbs-table table .rowColsInfo span {
+          font-family: 'Helvetica';
+          font-size: 16px;
+          border-bottom: 1px solid black; }
+      #tbs #tbs-table table .raw {
+        display: inline-block;
+        font: 'Helvetica';
+        font-size: 1px;
+        line-height: 30px;
+        width: 40px;
+        height: 30px;
+        background: url("../images/6.png") no-repeat;
+        background-size: contain;
+        background-position: center;
+        /*-webkit-animation: toRaw .5s 1;*/ }
+      #tbs #tbs-table table .ripe {
+        display: inline-block;
+        font: 'Helvetica';
+        font-size: 1px;
+        background: url("../images/1.png") no-repeat;
+        line-height: 30px;
+        width: 40px;
+        height: 30px;
+        background-size: contain;
+        background-position: center;
+        /*-webkit-animation: toRipe .5s 1;*/ }
+  #tbs .tbscell {
+    display: -webkit-box; }
+  #tbs #tbs-bar {
     height: 60px;
     width: 100%;
     color: #bbb;
     background: #2e2e2e;
     font-weight: bold;
-    letter-spacing: 0.025em;
-}
-
-#tbs #tbs-bar ul {
-    text-align: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-#tbs #tbs-bar ul li {
-    display: inline-block;
-    list-style: none;
-    padding: 0 10px 0 10px;
-    line-height: 60px !important;
-}
+    letter-spacing: 0.025em; }
+    #tbs #tbs-bar ul {
+      text-align: center;
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      #tbs #tbs-bar ul li {
+        display: inline-block;
+        list-style: none;
+        padding: 0 10px 0 10px;
+        line-height: 60px !important; }
 
 .hide {
-    display: none !important;
-}
+  display: none !important; }
 
 @-webkit-keyframes toRaw {
-    0% {
-        background: url("../images/5.png") no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
+  0% {
+    background: url("../images/5.png") no-repeat;
+    background-size: contain;
+    background-position: center; }
 
-    10% {
-        background: url("../images/4.png") no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
+  10% {
+    background: url("../images/4.png") no-repeat;
+    background-size: contain;
+    background-position: center; }
 
-    30% {
-        background: url("../images/3.png") no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
+  30% {
+    background: url("../images/3.png") no-repeat;
+    background-size: contain;
+    background-position: center; }
 
-    50% {
-        background: url("../images/2.png") no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
+  50% {
+    background: url("../images/2.png") no-repeat;
+    background-size: contain;
+    background-position: center; }
 
-    70% {
-        background: url("../images/1.png") no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
+  70% {
+    background: url("../images/1.png") no-repeat;
+    background-size: contain;
+    background-position: center; }
 
-    100% {
-        background: url("../images/6.png") no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
-}
+  100% {
+    background: url("../images/6.png") no-repeat;
+    background-size: contain;
+    background-position: center; } }
 
 @-webkit-keyframes toRipe {
-    0% {
-        background: url("../images/6.png") no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
+  0% {
+    background: url("../images/6.png") no-repeat;
+    background-size: contain;
+    background-position: center; }
 
-    10% {
-        background: url("../images/1.png") no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
+  10% {
+    background: url("../images/1.png") no-repeat;
+    background-size: contain;
+    background-position: center; }
 
-    30% {
-        background: url("../images/2.png") no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
+  30% {
+    background: url("../images/2.png") no-repeat;
+    background-size: contain;
+    background-position: center; }
 
-    50% {
-        background: url("../images/3.png") no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
+  50% {
+    background: url("../images/3.png") no-repeat;
+    background-size: contain;
+    background-position: center; }
 
-    70% {
-        background: url("../images/4.png") no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
+  70% {
+    background: url("../images/4.png") no-repeat;
+    background-size: contain;
+    background-position: center; }
 
-    100% {
-        background: url("../images/5.png") no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
-}
+  100% {
+    background: url("../images/5.png") no-repeat;
+    background-size: contain;
+    background-position: center; } }
 
-.files {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-}
-
-.files .file {
+#files {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row; }
+  #files .file {
     display: inline-block;
     -webkit-flex: 1;
     margin: 10px 10px;
@@ -251,5 +199,4 @@ body, html {
     height: 60px;
     line-height: 60px !important;
     background: white;
-    text-align: center;
-}
+    text-align: center; }

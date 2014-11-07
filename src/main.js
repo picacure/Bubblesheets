@@ -185,7 +185,6 @@
 								j + '"><span>Name</span></td>';
 						}
 						else{
-							rowData.push('×');
 
 							domStr += '<td class="rowColsInfo" data-row="' + i + '" data-col="' +
 								j + '"></td>';
