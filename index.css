@@ -19,6 +19,22 @@ body, html {
     /*overflow: scroll;*/
 }
 
+#result{
+    position: absolute;
+    left: 50%; top: 50%;
+    font-size: 40px;
+    color: #ffffff;
+    width: 50px; height: 50px;
+    text-align: center;
+}
+
+#line{
+    position: absolute;
+    left: 0px; top: 0px;
+    border-right: 1px dashed #CD235C;
+    border-bottom: 1px dashed #CD235C
+}
+
 #wrapper {
     z-index: 1000;
 }

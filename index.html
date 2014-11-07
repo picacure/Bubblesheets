@@ -12,9 +12,9 @@
     <meta name="description" content=""/>
     <link rel="stylesheet" href="index.css" type="text/css">
 
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-
+    <script src="cordova.js"></script>
     <script src="src/jquery-1.7.2.js"></script>
+
     <!--<script src="src/weinre.js"></script>-->
     <!--<script src="src/iscroll.js"></script>-->
 
@@ -24,24 +24,10 @@
 </head>
 <body>
 <div id="wrapper" class="hide">
-    <div id="result"
-         style="
-             position: absolute;
-             left: 50%; top: 50%;
-             font-size: 40px;
-             color: #ffffff;
-             width: 50px; height: 50px;
-             text-align: center;"></div>
-    <div id="line" style="position: absolute;
-                    left: 0px; top: 0px;
-                    border-right: 1px dashed #CD235C;
-                    border-bottom: 1px dashed #CD235C">
-
-    </div>
+    <div id="result"></div>
+    <div id="line"></div>
     <div ng-app="myApp">
         <div>
-            <!--<p>    Click <a ng-click="loadPeople()">here</a> to load data.</p>-->
-
         </div>
     </div>
 </div>

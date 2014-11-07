@@ -5,11 +5,7 @@
 
 	document.addEventListener("deviceready", function(){
 
-
-
-
-
-//
+	alert("s");
 //		//表格数据.
 //		var tbData;
 //
