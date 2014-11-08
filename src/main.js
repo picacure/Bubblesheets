@@ -56,7 +56,7 @@
 						data = JSON.parse(result);
 					}
 					catch(e) {
-						console.log("文件读取错误->" + e);
+						alert("文件读取错误->" + e);
 						newfile();
 						return;
 					}
@@ -79,6 +79,13 @@
 											icon = "√";
 										}
 										domStr += '<td data-row="' + i + '" data-col="' + j + '"><span class="' + data[i][j] + '">'+ icon +'</span></td>';
+									}
+									//h2标题
+									else if(i == 0 && j == 0){
+										$('h2').text(data[0][0]);
+
+										domStr += '<td class="rowColsInfo" data-row="' + i + '" data-col="' +
+											j + '"><span></span></td>';
 									}
 									else{
 										domStr += '<td class="rowColsInfo" data-row="' + i + '" data-col="' +
@@ -181,13 +188,13 @@
 					else{
 						//默认头部列头，行头文字.
 						if(i == 0 && j != 0){
-							rowData.push('Name');
+							rowData.push('Week');
 
 							domStr += '<td class="rowColsInfo" data-row="' + i + '" data-col="' +
 								j + '"><span>Week</span></td>';
 						}
 						else if(i != 0 && j == 0){
-							rowData.push('Week');
+							rowData.push('Name');
 
 							domStr += '<td class="rowColsInfo" data-row="' + i + '" data-col="' +
 								j + '"><span>Name</span></td>';
@@ -196,6 +203,8 @@
 							rowData.push('');
 							domStr += '<td class="rowColsInfo" data-row="' + i + '" data-col="' +
 								j + '"></td>';
+
+							$('h2').text('ATTENDANCE SHEET');
 						}
 					}
 				}
@@ -255,7 +264,7 @@
 		$("#tbs").delegate('td','touchstart',cellTouch);
 
 		//点击标题
-		$(document).delegate('.rowColsInfo,h2','touchstart',function(){
+		$(document).delegate('.rowColsInfo','touchstart',function(){
 
 			var $this = $(this);
 			var w = $this.css('width');
@@ -280,6 +289,30 @@
 				var val = $input.val();
 				$input.unbind().hide().remove();
 				tbData[row][col] = val;
+				$this.text(val);
+			})
+
+		});
+
+		$(document).delegate('h2','touchstart',function(){
+
+			var $this = $(this);
+			var w = $this.css('width');
+			var h = $this.css('height');
+			var $input = $('<input style="z-index: 100; position: absolute; display:block; left: 0px; top:0px;">');
+
+
+			$input.css({
+				'width': parseInt(w) - 9,
+				'height': parseInt(h) - 3
+			})
+			$input.appendTo($this);
+
+
+			$input.focusout(function(){
+				var val = $input.val();
+				$input.unbind().hide().remove();
+				tbData[0][0] = val;
 				$this.text(val);
 			})
 
