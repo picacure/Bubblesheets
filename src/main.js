@@ -22,7 +22,7 @@
 				$('#files').append('<div class="file" data-create="new" data-name="' + (new Date()).getMilliseconds() + '.json">+</div>');
 
 				for (var i= 0,len = files.length; i< len; i++) {
-					$('#files').append('<div class="file" data-create="old" data-name="' + files[i].name + '">' + files[i].name.split('.')[0] + '</div>')
+					$('#files').append('<div class="file" data-create="old" data-name="' + files[i].name + '">blank' + (i+1) + '</div>')
 				}
 			});
 		}
@@ -82,7 +82,7 @@
 									}
 									//h2标题
 									else if(i == 0 && j == 0){
-										$('h2').text(data[0][0]);
+										$('h2').text(data[0][0] || "ATTENDANCE SHEET");
 
 										domStr += '<td class="rowColsInfo" data-row="' + i + '" data-col="' +
 											j + '"><span></span></td>';
