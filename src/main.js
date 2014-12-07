@@ -10,11 +10,6 @@
 
 		var currFileName;
 
-//		_dir.removeAllFile(function(){
-//
-//		});
-
-
 		function showAllFiles(){
 			//文件操作.
 			_dir.listAllFiles(function(files){
@@ -29,6 +24,8 @@
 
 		showAllFiles();
 
+
+
 		$('#files').delegate('.file','touchstart',function(){
 			var $this = $(this);
 
@@ -38,20 +35,24 @@
 			function newfile(){
 				//新创建需要重新绑定 滑动创建表格事件.
 				tbData = [];
-				_File.write(currFileName,'');
-				$('#wrapper').removeClass('hide').bind('touchstart',touchStart).bind('touchmove',touchMove).bind('touchend',touchEnd);
-				$('#files').addClass('hide');
+				_File.write(currFileName,'',function(){
+					$('#handTip').removeClass('hide').bind('touchstart',touchStart).bind('touchmove',touchMove).bind('touchend',touchEnd);
+					$('#files').addClass('hide');
 
-				$('#tbs-shadow').removeClass('hide');
+					$('#tbs-shadow').removeClass('hide');
+				});
 			}
 
 			if(isNew == 'new'){
+				$("#handTip").removeClass('hide');
 				newfile();
 			}
 			else{
 
 				_File.read(currFileName,function(result){
 					var data;
+
+//					alert(result);
 					try{
 						data = JSON.parse(result);
 					}
@@ -101,13 +102,13 @@
 						}
 						else{
 							tbData = [];
-							$('#wrapper').removeClass('hide');
+							$('#handTip').removeClass('hide');
 							$('#files').addClass('hide');
 						}
 					}
 					catch (e){
 						tbData = [];
-						$('#wrapper').removeClass('hide');
+						$('#handTip').removeClass('hide');
 						$('#files').addClass('hide');
 					}
 				});
@@ -144,10 +145,13 @@
 			if(rows <= 0) rows = 0;
 			if(rows > maxRows) rows = maxRows;
 
+			var disC = ((cols - 1) < 0 ? 0: (cols - 1));
+			var disR = ((rows - 1) < 0 ? 0: (rows - 1));
+
 			$("#result").css({
 				left: (midPoint.x - 100) + "px",
 				top: (midPoint.y - 70) + "px"
-			}).text(rows + "*" + cols);
+			}).text(disR + "*" + disC);
 
 			//提示线.
 			$("#line").css({
@@ -167,9 +171,9 @@
 			var cols = Math.floor(Math.abs(endPoint.x - startPoint.x)/cellW);
 			var rows = Math.floor(Math.abs(endPoint.y - startPoint.y)/cellH);
 
-			if(cols <= 0) cols = 0;
+			if(cols <= 0) cols = 3;
 			if(cols > maxCols) cols = maxCols;
-			if(rows <= 0) rows = 0;
+			if(rows <= 0) rows = 3;
 			if(rows > maxRows) rows = maxRows;
 
 			tbData = [];
@@ -218,23 +222,24 @@
 				height:0
 			});
 
+
 			$('#tbs-shadow').addClass('hide');
 
 			$('#tbs').removeClass('hide');
 			$("#tbs table").html(domStr).addClass('bd');
 			$("#result").addClass('hide');
 
-			$("#wrapper").unbind('touchstart').unbind('touchmove').unbind('touchend').addClass('hide');
+			$("#handTip").unbind('touchstart').unbind('touchmove').unbind('touchend').addClass('hide');
 		}
 
 		var startPoint = {};
-		$("#wrapper").bind('touchstart',touchStart);
+		$("#handTip").bind('touchstart',touchStart);
 
 		var midPoint = {};
-		$("#wrapper").bind('touchmove',touchMove);
+		$("#handTip").bind('touchmove',touchMove);
 
 		var endPoint = {};
-		$("#wrapper").bind('touchend',touchEnd);
+		$("#handTip").bind('touchend',touchEnd);
 
 		//泡泡
 		function cellTouch(ex){
@@ -285,11 +290,13 @@
 				$input.focus();
 			},100)
 
+			$input.on('input',function(){
+				tbData[row][col] = $input.val();
+			})
+
 			$input.focusout(function(){
-				var val = $input.val();
+				$this.text(tbData[row][col]);
 				$input.unbind().hide().remove();
-				tbData[row][col] = val;
-				$this.text(val);
 			})
 
 		});
@@ -308,41 +315,43 @@
 			})
 			$input.appendTo($this);
 
+			$input.on('input',function(){
+				tbData[0][0] = $input.val();
+			})
 
 			$input.focusout(function(){
-				var val = $input.val();
+				$this.text(tbData[0][0]);
 				$input.unbind().hide().remove();
-				tbData[0][0] = val;
-				$this.text(val);
 			})
 
 		});
 
 		$(".close").bind('touchstart',function(){
 
-			_File.write(currFileName,JSON.stringify(tbData));
 
-			$("#tbs").animate({
-				foo:100
-			},{
-				duration: 600,
-				step: function(v){
-					$(this).css('-webkit-transform','scale('+ (100-v)/100 +')');
-				},
-				complete: function(){
+			_File.write(currFileName,JSON.stringify(tbData),function(){
+				$("#tbs").animate({
+					foo:100
+				},{
+					duration: 600,
+					step: function(v){
+						$(this).css('-webkit-transform','scale('+ (100-v)/100 +')');
+					},
+					complete: function(){
 
-					//重置.
-					this.foo = 1;
+						//重置.
+						this.foo = 1;
 
-					$("#tbs").addClass('hide').css("-webkit-transform","scale(1)");
-					showAllFiles();
-					$('#files').removeClass('hide');
-				}
-			})
+						$("#tbs").addClass('hide').css("-webkit-transform","scale(1)");
+						showAllFiles();
+						$('#files').removeClass('hide');
+					}
+				})
+			});
 		})
 
 		$(".mail").bind('touchstart',function(){
-			window.location.href = "mailto:email@echoecho.com?subject=SweetWords&body=" + $("#tbs-table").html();
+			window.location.href = "mailto:email@echoecho.com?subject=BubbleSheet&body=" + $("#tbs-table").html();
 		})
 
 	}, false);

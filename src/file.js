@@ -51,7 +51,7 @@
 		window._File = {};
 	}
 
-	window._File.write = function(filename,data){
+	window._File.write = function(filename,data,callback){
 
 		function gotFileEntry(fileEntry) {
 			fileEntry.createWriter(gotFileWriter, fail);
@@ -61,13 +61,15 @@
 			writer.seek(0);
 
 			writer.onwriteend = function(evt) {
+				callback();
 				console.log("写完");
 			};
 			writer.write(data);
 		}
 
 		function fail(error) {
-			console.log(error.code);
+			callback();
+			alert(error.code);
 		}
 
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs){
