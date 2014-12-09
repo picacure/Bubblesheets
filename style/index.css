@@ -154,22 +154,20 @@ body, html {
 
 @-webkit-keyframes move {
   0% {
-    -webkit-transform: translateY(0px) translateX(0px); }
+    -webkit-transform: translateY(20px) translateX(20px); }
 
   100% {
-    -webkit-transform: translateY(300px) translateX(300px); } }
+    -webkit-transform: translateY(1000%) translateX(500%); } }
 
 #fileName, #handTip {
-  /* 2009 syntax */
   display: -webkit-box;
-  display: box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
   /* current syntax */
   display: -webkit-flex;
   display: flex;
   -webkit-flex-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
   text-align: center;
   position: absolute;
   z-index: 10;
@@ -184,7 +182,7 @@ body, html {
     width: 80%;
     height: 30px; }
   #fileName img, #handTip img {
-    display: block;
+    display: inline-block;
     -webkit-animation: move 3s infinite; }
 
 #handTip {

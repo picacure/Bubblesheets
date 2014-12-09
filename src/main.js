@@ -57,7 +57,7 @@
 						data = JSON.parse(result);
 					}
 					catch(e) {
-						alert("文件读取错误->" + e);
+						//alert("文件读取错误->" + e);
 						newfile();
 						return;
 					}
